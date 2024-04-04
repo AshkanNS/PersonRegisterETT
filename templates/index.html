@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>PersonRegister</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+<!--------------------------------------------------------------------------------------------------------->
+<!--------------------------------------------------------------------------------------------------------->
+<header>    <!--vår nav bar-->
+    <nav id="navbar">
+        <ul>
+            <li><a href="#welcome-section">Hem</a></li>     <!--Länk till välkommst sektionen-->
+            <li><a href="#all-persons">Person Register</a></li> <!--Länk till personregistret-->
+        </ul>
+    </nav>
+</header>
+<!--------------------------------------------------------------------------------------------------------->
+<!--------------------------------------------------------------------------------------------------------->
+<section id="welcome-section">  <!--välkomnsttext-->
+    <h1>Välkommen</h1>
+</section>
+<!--------------------------------------------------------------------------------------------------------->
+<!--------------------------------------------------------------------------------------------------------->
+<!--vår sektion för att presentera vår person lista/tabell-->
+<section id="all-persons">
+    <h2>Alla Personer</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Namn</th>
+                <th>Ålder</th>
+                <th>Telefonnummer</th>
+                <th>Land</th>
+                <th>Mer Information</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Jinja2-loop som genererar en tabellrad för varje person listan-->
+            {% for person in persons %}
+            <tr>
+                <td>{{ person.namn }}</td>
+                <td>{{ person.alder }}</td>
+                <td>{{ person.telefonnr }}</td>
+                <td>{{ person.land }}</td>
+                <!-- Länk till en vår personpage-->
+                <td><a href="{{ url_for('person_detail', person_id=person.id) }}">Personpage</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+<!--------------------------------------------------------------------------------------------------------->
+<!--------------------------------------------------------------------------------------------------------->
+<footer>
+    <p>© 2024 Ashkans PersonRegister</p>
+</footer>
+<!--------------------------------------------------------------------------------------------------------->
+<!--------------------------------------------------------------------------------------------------------->
+</body>
+</html>

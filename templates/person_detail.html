@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    
+</head>
+<body>
+    <h2>{{ person.namn }}</h2>
+        <p>Ålder: {{ person.alder }}</p>
+        <p>Telefonnummer: {{ person.telefonnr }}</p>
+        <p>Land: {{ person.land }}</p>
+        <img src="{{ url_for('static', filename='images/Smiley.jpg') }}" alt="Bild av {{ person.namn }}">
+</body>
+</html>
+
